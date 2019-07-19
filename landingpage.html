@@ -18,18 +18,30 @@ needs to be separately input using external links-->
 
     <script  type="text/javascript"> let name = 'Oti Doulefko Peze'; </script>
 
+    <style>
+      table {border-collapse: separate; border-spacing: 10px 10px;}
+
+    h2 {
+      margin: 0 1%
+    }
+      p {
+        margin: 0 2%;
+      }
+    </style>
+
   </head>
 
   <body>
 
     <div class="container-fluid jumbotron ">
-      <!-- <h1>'Welcome to' + name</h1> -->
       <h1 id= "name"></h1>
       <script> document.getElementById("name").innerHTML =  'Welcome to ' + name </script>
     </div>
 
-    <div class="container-fluid">
-
+    <div class"container-fluid">
+      <h2>About us</h2>
+      <p id= "name2" style = 'font-size:20px'></p>
+      <script> document.getElementById("name2").innerHTML = name +  'is a windows application that monitos your productivity and using a combination of visual representations (using a DotMatrix and RGB lights) with graphs, provides analytics for the quality of your studies' </script>
     </div>
 
   </body>
