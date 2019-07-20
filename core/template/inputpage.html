@@ -13,8 +13,25 @@
     <link href="https://bootswatch.com/4/Litera/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <script  type="text/javascript"> let name = 'Fotin.io';
-
-
+    let var yeet = true;
+    function validateForm() {
+      var x = document.forms["form3"]["study_time"].value;
+        var x = document.forms["form3"]["break_time"].value;
+          var x = document.forms["form3"]["num_cycle"].value;
+      if (x == "") {
+        alert("Study Time must be filled out");
+        yeet = false;
+        return false;
+      }else if (y == ""){
+        yeet = false;
+        alert("Break Time must be filled out");
+        return false;
+      }else if (z == ""){
+        yeet = false;
+        alert("Number of cycles must be filled out");
+        return false;
+      }
+    }
  </script>
     <!-- <script> var formData = JSON.stringify($("#myForm").serializeArray()); </script> -->
 
@@ -70,7 +87,7 @@ display: block;
 
 
     <div class='container-fluid'>
-      <form name='form3' method="post" action='http://127.0.0.1:5000/dataendpoint' id='formoza'>
+      <form name='form3' method="post" onsubmit="return validateForm()" action='http://127.0.0.1:5000/dataendpoint' id='formoza'>
         <ul class="nav nav-tabs">
 
           <li class="nav-item">
@@ -93,13 +110,13 @@ display: block;
             <!-- <p>Study time <br> Break time <br> Number of cycles<br></p> -->
             <center style='font-size: 18px'>
             Study Time:
-            <input type="number"  step = '5' name="study_time" required> <br>
+            <input type="number"  step = '5' name="study_time" required/> <br>
 
             Break Time:
-            <input type="number"  step = '5' name="break_time" required> <br>
+            <input type="number"  step = '5' name="break_time" required/> <br>
 
             Number of Cycles:
-            <input type="number" value="1" name="num_cycle" required>
+            <input type="number" value="1" name="num_cycle" required/>
             </center>
           </div>
 
@@ -204,11 +221,13 @@ display: block;
             </center>
 
         </div>
-        <input type="button" onclick='myFunction()' value="Submit Form">
+        <input type="submit" onclick='myFunction()' value="Save">
       </form>
       <script>
         function myFunction() {
+          if ( yeet == true){
           document.getElementById("formoza").submit();
+        }
           // window.location.href="http://127.0.0.1:5000/startapp";
         }
 
