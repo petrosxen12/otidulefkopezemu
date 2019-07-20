@@ -2,6 +2,7 @@ import time
 import collections
 import requests
 import json
+import math
 
 
 # import os
@@ -34,6 +35,7 @@ class DataHandler:
     interval_takkonis_durations = collections.defaultdict(lambda: [0])
     interval_productive_durations = collections.defaultdict(lambda: [0])
     interval = 1
+    old_interval = 1
 
     check_point = 0
     last_check_point = 0
@@ -89,11 +91,22 @@ class DataHandler:
         self.rgb_metric = self.current_productiveness()
         self.matrix_metric = self.interval_productiveness()
 
-        str_data = json.dumps({'rgb' : self.rgb_metric, 'matrix' : self.matrix_metric})
+        #print(self.matrix_metric)
 
-        headers = {'content-type': 'application/json'}
+        if self.interval != self.old_interval:
+            norm_height = self.matrix_metric[1]
 
-        r = requests.post(url=self.raspberry_post_address, data=str_data, headers=headers)
+            height = math.ceil(norm_height * 8)
+
+            str_data = json.dumps({'rgb': self.rgb_metric, 'matrix':height})
+
+            headers = {'content-type': 'application/json'}
+
+            r = requests.post(url=self.raspberry_post_address, data=str_data, headers=headers)
+
+
+
+
 
 
 
