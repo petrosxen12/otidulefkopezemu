@@ -59,8 +59,8 @@ class DataHandler:
         # print("In update")
         self.check_point = time.time()
         self.interval_checkpoint = self.check_point
-        self.rgb_metric = self.current_productiveness()
-        self.matrix_metric = self.interval_productiveness()
+        # self.rgb_metric = self.current_productiveness()
+        # self.matrix_metric = self.interval_productiveness()
 
         if not self.q.empty():
             print("----------------")
@@ -83,7 +83,10 @@ class DataHandler:
             #     self.exit_status = True
 
         #print(self.rgb_metric)
-        print(self.matrix_metric)
+        self.rgb_metric = self.current_productiveness()
+        self.matrix_metric = self.interval_productiveness()
+
+        #print(self.matrix_metric)
 
     def current_productiveness(self):
         dt = self.check_point - self.last_check_point
@@ -100,25 +103,25 @@ class DataHandler:
     def interval_productiveness(self):
         dt = self.interval_checkpoint - self.interval_last_checkpoint
 
-        if dt > self.matrix_interval:
+        productive_time = sum(self.interval_productive_durations[self.interval - 1])
+        takko_time = sum(self.interval_takkonis_durations[self.interval - 1])
+
+        if dt + productive_time + takko_time > self.matrix_interval:
             self.interval += 1
             self.interval_start_time = self.check_point
             self.interval_checkpoint = self.check_point
             self.interval_last_checkpoint = self.check_point
             dt = 0
 
-        if self.takkonis:
-            pass
 
         #print("interval: " + str(self.interval))
-        productive_time = sum(self.interval_productive_durations[self.interval-1])
-        takko_time = sum(self.interval_takkonis_durations[self.interval-1])
+
 
         #print(productive_time + dt * (int(not self.takkonis)))
 
         #print(productive_time )#+ (dt * int(not self.takkonis)))
 
-        if (productive_time + (dt * int(not self.takkonis))) / self.matrix_interval > 1:
-            print("greater than zero")
+        # if (productive_time + (dt * int(not self.takkonis))) / self.matrix_interval > 1:
+        #     print("greater than zero")
 
         return (self.interval,(productive_time + (dt * int(not self.takkonis))) / self.matrix_interval )
