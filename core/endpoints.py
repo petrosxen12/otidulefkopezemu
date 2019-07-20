@@ -6,8 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def welcome():
-    name = request.args.get("name", "hello")
-    return name
+    return render_template('templates/index.html')
 
 
 @app.route('/startapp')
