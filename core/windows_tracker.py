@@ -6,8 +6,6 @@ import win32gui as wp
 
 import data_handlers as workers
 
-app = Flask(__name__)
-
 blacklist_file = open("blacklist.txt", "r")
 # blacklist = list(blacklist_file.readlines())
 blacklist = [x.strip('\n') for x in blacklist_file.readlines()]
@@ -53,17 +51,10 @@ def get_active_window():
         sleep(1)
 
 
-@app.route('/')
-def welcome():
-    name = request.args.get("name", "hello")
-    return f'Hello {escape(name)}'
+# if __name__ == '__main__':
+#     p.start()
+#     get_active_window()
 
-
-@app.route('/startapp')
-def startapp():
+def run():
     p.start()
     get_active_window()
-
-
-if __name__ == '__main__':
-    app.run()
