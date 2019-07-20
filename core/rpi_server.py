@@ -8,12 +8,17 @@ def matrix_data():
     if request.method == 'POST':
         data = request.get_json()
         matrix = float(data.get('matrix'))
+
         return {'matrix': matrix}
 
-    if request.method == 'GET':
+
+@app.route('/rgblivedata', methods=['POST'])
+def rgb_data():
+    if request.method == 'POST':
         data = request.get_json()
         rgb = float(data.get('rgb'))
         print("RGB VALUE: %f" % rgb)
+
         return {'rgb': rgb}
 
 
