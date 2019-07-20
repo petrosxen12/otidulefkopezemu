@@ -15,10 +15,13 @@ def startapp():
     # os.system("python windows_tracker.py")
     windows_tracker.run()
 
-@app.route('/onisillos',methods=['POST'])
+
+@app.route('/onisillos', methods=['POST'])
 def getFormData():
-    data = request.form
-    print(data)
+    if request.method == 'POST':
+        data = request.form
+        print(data)
+
 
 if __name__ == '__main__':
     app.run()
