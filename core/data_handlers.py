@@ -1,5 +1,6 @@
 import time
 import collections
+import requests
 
 
 # import os
@@ -8,7 +9,6 @@ import collections
 
 
 def worker(q):
-    # hello hello
     datahandler = DataHandler(q)
 
     while True:
@@ -22,6 +22,8 @@ def worker(q):
 
 
 class DataHandler:
+    raspberry_post_address = 0
+
     change_window_times = []
     exit_status = False
 
@@ -85,6 +87,14 @@ class DataHandler:
         #print(self.rgb_metric)
         self.rgb_metric = self.current_productiveness()
         self.matrix_metric = self.interval_productiveness()
+
+        data = {'rgb' : self.rgb_metric, 'matrix' : self.matrix_metric}
+
+        r = requests.post(url=self.raspberry_post_address, data = data)
+
+
+
+
 
         #print(self.matrix_metric)
 
