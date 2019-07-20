@@ -2,16 +2,21 @@ import windows_tracker
 from flask import Flask, render_template, url_for, request
 from flask import render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='template')
+
 blacklist_file = open("blacklist.txt", "w")
+
 
 @app.route('/')
 def index():
-    return render_template('templates/index.html')
+    return render_template('index.html')
     # pass
     # return "Hello"
     # return render_template("index.html", user="Petros")
 
+@app.route('/user_information')
+def user_info():
+    return render_template('inputpage.html')
 
 @app.route('/startapp')
 def startapp():
@@ -49,7 +54,7 @@ def getFormData():
         break_time = data.get('break_time')
 
         blcllst = ['9gag', 'twitter', 'tumblr', 'instagram', 'World of Warcraft', 'minecraft', 'fortnite',
-                   'letmewatchthis', 'netflix', 'steam', 'epic','facebook','messenger']
+                   'letmewatchthis', 'netflix', 'steam', 'epic', 'facebook', 'messenger']
         kys = data.keys()
         print(kys)
 
