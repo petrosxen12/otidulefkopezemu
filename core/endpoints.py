@@ -23,6 +23,7 @@ def user_info():
 def startapp():
     # os.system("python windows_tracker.py")
     windows_tracker.run()
+    return render_template('success.html')
 
 
 @app.route('/dataendpoint', methods=['POST'])
