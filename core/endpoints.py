@@ -49,7 +49,7 @@ def getFormData():
         break_time = data.get('break_time')
 
         blcllst = ['9gag', 'twitter', 'tumblr', 'instagram', 'World of Warcraft', 'minecraft', 'fortnite',
-                   'letmewatchthis', 'netflix', 'steam', 'epic']
+                   'letmewatchthis', 'netflix', 'steam', 'epic','facebook','messenger']
         kys = data.keys()
         print(kys)
 
