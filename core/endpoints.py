@@ -14,6 +14,9 @@ def index():
     # return "Hello"
     # return render_template("index.html", user="Petros")
 
+@app.route('/user_information')
+def user_info():
+    return render_template('inputpage.html')
 
 @app.route('/startapp')
 def startapp():
