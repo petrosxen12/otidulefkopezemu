@@ -73,8 +73,8 @@ class DataHandler:
                 self.productive_durations.append(self.check_point - self.last_check_point)
                 self.interval_productive_durations[self.interval-1].append(self.interval_checkpoint - self.interval_last_checkpoint)
 
-            print(str(self.interval_takkonis_durations))
-            print(str(self.interval_productive_durations))
+            # print(str(self.interval_takkonis_durations))
+            # print(str(self.interval_productive_durations))
 
             self.takkonis = self.q.get()
             self.last_check_point = self.check_point
@@ -86,7 +86,7 @@ class DataHandler:
         self.rgb_metric = self.current_productiveness()
         self.matrix_metric = self.interval_productiveness()
 
-        print(self.matrix_metric)
+        #print(self.matrix_metric)
 
     def current_productiveness(self):
         dt = self.check_point - self.last_check_point
@@ -121,7 +121,7 @@ class DataHandler:
 
         #print(productive_time )#+ (dt * int(not self.takkonis)))
 
-        if (productive_time + (dt * int(not self.takkonis))) / self.matrix_interval > 1:
-            print("greater than zero")
+        # if (productive_time + (dt * int(not self.takkonis))) / self.matrix_interval > 1:
+        #     print("greater than zero")
 
         return (self.interval,(productive_time + (dt * int(not self.takkonis))) / self.matrix_interval )
