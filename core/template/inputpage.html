@@ -93,13 +93,13 @@ display: block;
             <!-- <p>Study time <br> Break time <br> Number of cycles<br></p> -->
             <center style='font-size: 18px'>
             Study Time:
-            <input type="number"  step = '5' name="study_time"> <br>
+            <input type="number"  step = '5' name="study_time" required> <br>
 
             Break Time:
-            <input type="number"  step = '5' name="break_time"> <br>
+            <input type="number"  step = '5' name="break_time" required> <br>
 
             Number of Cycles:
-            <input type="number" name="num_cycle">
+            <input type="number" value="1" name="num_cycle" required>
             </center>
           </div>
 
@@ -115,7 +115,6 @@ display: block;
           <div class="tab-pane fade" id="allowance">
             <!-- <p>Two tickboxes with allowed and forbiden apps</p> -->
             <center style='font-size: 18px'>
-              <input type="checkbox" id="selectall" onClick="selectAll(this)" />check all</br>
               <div class="form-group">
                 <div class="custom-control custom-switch">
 
@@ -123,7 +122,7 @@ display: block;
                   <label  >Label Messanger as a productivity application</label>
 
                   <input type="checkbox" class="custom-control-input" id="allowMsgr" name = "messenger">
-                  <label class=" " for="allowMsgr">Mark Messenger as a productivity application</label>
+
 
                 </div>
               </div>
@@ -133,9 +132,6 @@ display: block;
 
                   <input type="checkbox"    name = "fcbk">
                   <label >Label Facebook as a productivity application</label>
-
-                  <input type="checkbox" class=" " id="allowFcbk" name = "facebook">
-                  <label class="" for="allowFcbk">Mark Facebook as a productivity application</label>
 
                 </div>
               </div>
@@ -166,8 +162,6 @@ display: block;
                 <div class = 'column'>
 
                   <input type="checkbox" tag='bruh' name="WoW"><img src="../static/icons/WoW.png" width="40px"><p class='bruh'>World of Warcraft</p><br>
-
-                  <input type="checkbox" name="World of Warcraft"><img src="../static/icons/WoW.png" width="40px"> World of Warcraft<br>
 
                 </div>
 
