@@ -1,3 +1,10 @@
+Click==7.0
+Flask==1.1.1
+itsdangerous==1.1.0
+Jinja2==2.10.1
+MarkupSafe==1.1.1
 pywin32==224
+Werkzeug==0.15.5
 win32core==221.36
 win32gui==221.6
+workers==0.1

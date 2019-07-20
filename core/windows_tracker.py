@@ -32,6 +32,7 @@ def is_in_blacklist(windowtitle):
         print("Not in BLACKLIST")
         q.put(False)
 
+
 def get_active_window():
     # print("test")
     old_window_name = wp.GetWindowText(wp.GetForegroundWindow())
@@ -46,7 +47,6 @@ def get_active_window():
 
             old_window_name = wp.GetWindowText(wp.GetForegroundWindow())
 
-
         # print("Current window is: %s" % window_name)
         # print(is_in_blacklist(window_name))
 
@@ -54,12 +54,16 @@ def get_active_window():
 
 
 @app.route('/')
-def hello():
+def welcome():
     name = request.args.get("name", "hello")
     return f'Hello {escape(name)}'
 
 
-if __name__ == '__main__':
+@app.route('/startapp')
+def startapp():
     p.start()
     get_active_window()
+
+
+if __name__ == '__main__':
     app.run()
