@@ -1,24 +1,8 @@
-<?php
-if ($_POST){
 
-  $bruh=json_encode($_POST);
-  var_dump($bruh);
-
-
-
-
-
-}
-
-
-
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Landerz &mdash; Website by Colorlib</title>
+    <title>Fotin.io &mdash; Boost Your Productivity</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -69,7 +53,7 @@ if ($_POST){
         <div class="row align-items-center">
 
           <div class="col-6 col-md-6 col-xl-2  d-block d-lg-none">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">Landerz<span class="text-primary">.</span> </a></h1>
+            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">Fotin.io<span class="text-primary">.</span> </a></h1>
           </div>
 
           <div class="col-12 col-md-10 main-menu">
@@ -106,9 +90,9 @@ if ($_POST){
             <div class="row mb-4">
               <div class="col-lg-4 mr-auto">
                 <h1>Get more productive</h1>
-                <p class="mb-5">Oti doulefko lampi is a product collecting screen usage relating to productivity. The data is sent to a rasberry pi, calculating your productivity based on activity, the LED colour turns green if you are productive and red when you're not.</p>
+                <p class="mb-5">Fotin.io is a product collecting screen usage relating to productivity. The data is sent to a rasberry pi, calculating your productivity based on activity, the LED colour turns green if you are productive and red when you're not.</p>
                 <div>
-                  <a href="inputpage.html" class="btn btn-primary mr-2 mb-2">Get Raped!</a>
+                  <a href="inputpage.html" class="btn btn-primary mr-2 mb-2">Get Started!</a>
                 </div>
               </div>
 
@@ -235,10 +219,10 @@ if ($_POST){
                 </div>
                 <div class="mr-auto text-black">
                   <strong class="font-weight-bold mb-0">Fotinos Kyriakides</strong> <br>
-                  Founder, Fot.io
+                  Founder, Fotin.io
                 </div>
               </div>
-              <blockquote>&ldquo;Exo makaronia mestin jepi mou&rdquo;</blockquote>
+              <blockquote>&ldquo;I cry in my sleep&rdquo;</blockquote>
             </div>
           </div>
         </div>
@@ -262,8 +246,8 @@ if ($_POST){
                   <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded-circle">
                 </div>
                 <div class="mr-auto text-black">
-                  <strong class="font-weight-bold mb-0">Darren K.</strong> <br>
-                  Co-Founder, XYZ Inc.
+                  <strong class="font-weight-bold mb-0">Petros Hen.</strong> <br>
+                  Co-Founder, Fotin.io Inc.
                 </div>
               </div>
               <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus vitae ipsa asperiores inventore aperiam iure?&rdquo;</blockquote>
