@@ -1,10 +1,8 @@
-from time import sleep
 from multiprocessing import Process, Queue
-from flask import app, request, escape, Flask
-
-import win32gui as wp
+from time import sleep
 
 import data_handlers as workers
+import win32gui as wp
 
 blacklist_file = open("blacklist.txt", "r")
 # blacklist = list(blacklist_file.readlines())

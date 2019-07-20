@@ -1,7 +1,7 @@
-import time
 import collections
-import requests
 import json
+import time
+
 import math
 
 

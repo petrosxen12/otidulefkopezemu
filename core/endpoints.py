@@ -1,10 +1,9 @@
 import windows_tracker
-from flask import Flask, render_template, url_for, request
+from flask import Flask, request
 from flask import render_template
-#import os
+
+# import os
 app = Flask(__name__, template_folder='template')
-
-
 
 
 @app.route('/')
@@ -14,20 +13,21 @@ def index():
     # return "Hello"
     # return render_template("index.html", user="Petros")
 
+
 @app.route('/user_information')
 def user_info():
     return render_template('inputpage.html')
 
+
 @app.route('/startapp')
 def startapp():
-    #os.system("python windows_tracker.py")
+    # os.system("python windows_tracker.py")
     windows_tracker.run()
 
 
 @app.route('/dataendpoint', methods=['POST'])
 def getFormData():
     # TODO: Add key values to file which have the on value.
-
 
     if request.method == 'POST':
         blacklist_file = open("blacklist.txt", "w")
