@@ -1,3 +1,15 @@
+<?php
+
+if ($_POST){
+
+$bruh=json_encode($_POST);
+var_dump($bruh);
+
+}
+
+
+?>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -34,6 +46,17 @@
         .checkboxes label{
           margin: 0px 20px 0px 3px;
         }
+        .column {
+          float: left;
+          width: 50%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
 
     </style>
 
@@ -48,7 +71,7 @@
 
 
     <div class='container-fluid'>
-      <form>
+      <form method="post">
         <ul class="nav nav-tabs">
 
           <li class="nav-item">
@@ -106,10 +129,58 @@
                   <label class="custom-control-label" for="allowFcbk">Label Facebook as a productivity application</label>
                 </div>
               </div>
+
+              <div class = 'row'>
+                <div class = 'column'>
+                  <input type="checkbox" name="9gag"><img src="icons/9gag.png" width="40px"> 9gag<br>
+                </div>
+
+                <div class = 'column'>
+                  <input type="checkbox" name="twitter"><img src="icons/twitter.png" width="40px"> twitter<br>
+                </div>
+
+                <div class = 'column'>
+                  <input type="checkbox" name="tumblr"><img src="icons/tumblr.png" width="40px"> tumblr<br>
+                </div>
+
+                <div class = 'column'>
+                  <input type="checkbox" name="instagram"><img src="icons/Instagram-Icon.png" width="40px"> Instagram<br>
+                </div>
+
+                <div class = 'column'>
+                  <input type="checkbox" name="WoW"><img src="icons/WoW.png" width="40px"> World of Warcraft<br>
+                </div>
+
+                <div class = 'column'>
+                  <input type="checkbox" name="minecraft"><img src="icons/minecraft.png" width="40px"> minecraft<br>
+                </div>
+
+                <div class = 'column'>
+                  <input type="checkbox" name="fortnite"><img src="icons/fortnite.jpeg" width="40px"> fortnite<br>
+                </div>
+
+                <div class = 'column'>
+                  <input type="checkbox" name="letmewatchthis"><img src="icons/lmwt.png" width="40px"> LetMeWatchThis<br>
+                </div>
+
+                <div class = 'column'>
+                  <input type="checkbox" name="netflix"><img src="icons/netflix.jpg" width="40px"> netflix<br>
+                </div>
+
+                <div class = 'column'>
+                  <input type="checkbox" name="steam"><img src="icons/steam2.jpg" width="40px"> steam<br>
+                </div>
+
+                <div class = 'column'>
+                  <input type="checkbox" name="epic"><img src="icons/epic.jpg" width="40px"> Epic Games<br>
+                </div>
+
+              </div>
+
             </center>
 
-<!-- 9gag, 4chan, twitter, tumbler, instagram, world of warcraft, minecraft, fortnite, letmewatchthis, netflix, hulu, steam, epic games launcher-->
         </div>
+        <input type="submit" value="Yeet">
       </form>
     </div>
 
