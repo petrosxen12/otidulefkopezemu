@@ -43,11 +43,13 @@ class DataHandler:
         time.sleep(0.001)
 
     def update(self):
+        #print("In update")
         self.check_point = time.time()
         self.rgb_metric = self.current_productiveness()
 
         if not self.q.empty():
-
+            print("----------------")
+            print("Queue not empty\n\n")
             if self.takkonis:
                 self.takkonis_durations.append(self.check_point - self.last_check_point)
 

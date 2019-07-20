@@ -20,24 +20,33 @@ p = Process(target=workers.worker, args=(q,))
 def is_in_blacklist(windowtitle):
     window_name = windowtitle.lower()
     print(window_name)
+    in_blacklist = False
 
     for title in blacklist:
         if title in window_name:
-            print("BLACKLIST")
-            # q.put(True)
-        else:
-            pass
-            # q.put(False)
+            print("BLACKLIST\n")
+            in_blacklist = True
+            q.put(True)
 
+    if not in_blacklist:
+        print("Not in BLACKLIST")
+        q.put(False)
 
 def get_active_window():
     # print("test")
+    old_window_name = wp.GetWindowText(wp.GetForegroundWindow())
+
     while True:
         window_name = wp.GetWindowText(wp.GetForegroundWindow())
-        if(old_window_name is not window_name and is_in_blacklist(window_name)):
-            q.put(True)
 
-        old_window_name = wp.GetWindowText(wp.GetForegroundWindow())
+        if window_name != old_window_name:
+            print("window has changed\n")
+
+            is_in_blacklist(window_name)
+
+            old_window_name = wp.GetWindowText(wp.GetForegroundWindow())
+
+
         # print("Current window is: %s" % window_name)
         # print(is_in_blacklist(window_name))
 
