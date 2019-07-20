@@ -15,11 +15,12 @@ def startapp():
     # os.system("python windows_tracker.py")
     windows_tracker.run()
 
+
 @app.route('/matrixdata', methods=['POST'])
 def matrix_data():
     if request.method == 'POST':
         data = request.get_json()
-
+        print(data)
         # print("kakaka")
         # print(type(data))
         # print(data.get('matrix'))
@@ -31,9 +32,12 @@ def matrix_data():
 
         # matrix = matrix.strip(')').strip('(').split(',')
         matrix = [float(x) for x in matrix]
+        # print(matrix)
+        # print(type(matrix[0]))
         rgb = float(data.get('rgb'))
+        # print(rgb)
 
-        return {'rgb':rgb, 'matrix':matrix}
+        return {'rgb': rgb, 'matrix': matrix}
 
 
 @app.route('/dataendpoint', methods=['POST'])
