@@ -1,3 +1,15 @@
+<?php
+
+if ($_POST){
+
+$bruh=json_encode($_POST);
+var_dump($bruh);
+
+}
+
+
+?>
+
 <html>
   <head>
     <meta charset="utf-8">
