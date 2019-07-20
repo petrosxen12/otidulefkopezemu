@@ -107,8 +107,8 @@ class DataHandler:
             self.old_interval = self.interval
 
         #r_get = requests.get(url=self.raspberry_post_address, data=json.dumps({'rgb':self.rgb_metric}), headers=self.headers)
-        print(self.rgb_metric)
-        print(self.takkonis)
+        # print(self.rgb_metric)
+        # print(self.takkonis)
 
 
 
