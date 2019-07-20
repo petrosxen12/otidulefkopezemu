@@ -1,6 +1,7 @@
 import time
 import collections
 import requests
+import json
 
 
 # import os
@@ -22,7 +23,7 @@ def worker(q):
 
 
 class DataHandler:
-    raspberry_post_address = 0
+    raspberry_post_address = 'http://192.168.18.224:5000/matrixdata'
 
     change_window_times = []
     exit_status = False
@@ -88,9 +89,11 @@ class DataHandler:
         self.rgb_metric = self.current_productiveness()
         self.matrix_metric = self.interval_productiveness()
 
-        data = {'rgb' : self.rgb_metric, 'matrix' : self.matrix_metric}
+        str_data = json.dumps({'rgb' : self.rgb_metric, 'matrix' : self.matrix_metric})
 
-        r = requests.post(url=self.raspberry_post_address, data = data)
+        headers = {'content-type': 'application/json'}
+
+        r = requests.post(url=self.raspberry_post_address, data=str_data, headers=headers)
 
 
 
