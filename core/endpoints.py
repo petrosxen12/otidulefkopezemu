@@ -29,7 +29,7 @@ def matrix_data():
 
         matrix = data.get('matrix')
 
-        matrix = matrix.strip(')').strip('(').split(',')
+        # matrix = matrix.strip(')').strip('(').split(',')
         matrix = [float(x) for x in matrix]
         rgb = float(data.get('rgb'))
 
