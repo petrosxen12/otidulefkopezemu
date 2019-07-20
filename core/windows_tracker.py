@@ -1,11 +1,13 @@
 from time import sleep
 from multiprocessing import Process, Queue
+
 import win32gui as wp
 
 blacklist_file = open("blacklist.txt", "r")
 # blacklist = list(blacklist_file.readlines())
 blacklist = [x.strip('\n') for x in blacklist_file.readlines()]
 print(blacklist)
+
 
 def main():
     q = Queue()
