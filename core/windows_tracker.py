@@ -1,9 +1,12 @@
 from time import sleep
 from multiprocessing import Process, Queue
+from flask import app, request, escape, Flask
 
 import win32gui as wp
 
 import data_handlers as workers
+
+app = Flask(__name__)
 
 blacklist_file = open("blacklist.txt", "r")
 # blacklist = list(blacklist_file.readlines())
@@ -12,7 +15,6 @@ print(blacklist)
 
 q = Queue()
 p = Process(target=workers.worker, args=(q,))
-p.start()
 
 
 def is_in_blacklist(windowtitle):
@@ -23,6 +25,8 @@ def is_in_blacklist(windowtitle):
         if title in window_name:
             print("BLACKLIST")
             q.put(True)
+        else:
+            q.put(False)
 
 
 def get_active_window():
@@ -34,5 +38,12 @@ def get_active_window():
         sleep(1)
 
 
+@app.route('/')
+def hello():
+    name = request.args.get("name", "hello")
+    return f'Hello {escape(name)}'
+
+
 if __name__ == '__main__':
+    p.start()
     get_active_window()

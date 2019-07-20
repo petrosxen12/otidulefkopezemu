@@ -1,7 +1,9 @@
 import time
 
-import os
-dir_path = os.path.dirname(os.path.realpath(__file__))
+# import os
+
+# dir_path = os.path.dirname(os.path.realpath(__file__))
+
 
 def worker(q):
     # hello hello
@@ -18,7 +20,6 @@ def worker(q):
 
 
 class DataHandler:
-
     change_window_times = []
     exit_status = False
 
@@ -33,7 +34,7 @@ class DataHandler:
     takkonis = False
 
     rgb_metric_graph = []
-    dt_graph = 0.5 #in seconds
+    dt_graph = 0.5  # in seconds
 
     def __init__(self, q):
         self.last_check_point = time.time()
@@ -53,14 +54,12 @@ class DataHandler:
             else:
                 self.productive_durations.append(self.check_point - self.last_check_point)
 
-
             self.takkonis = self.q.get()
             self.last_check_point = self.check_point
             # if queue_variable == 'exit':
             #     self.exit_status = True
 
         print(self.rgb_metric)
-
 
     def current_productiveness(self):
         dt = self.check_point - self.last_check_point
