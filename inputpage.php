@@ -1,3 +1,15 @@
+<?php
+
+if ($_POST){
+
+$bruh=json_encode($_POST);
+var_dump($bruh);
+
+}
+
+
+?>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -59,7 +71,7 @@
 
 
     <div class='container-fluid'>
-      <form>
+      <form method="post">
         <ul class="nav nav-tabs">
 
           <li class="nav-item">
@@ -167,8 +179,8 @@
 
             </center>
 
-<!-- 9gag, 4chan, twitter, tumbler, instagram, world of warcraft, minecraft, fortnite, letmewatchthis, netflix, steam, epic games launcher-->
         </div>
+        <input type="submit" value="Yeet">
       </form>
     </div>
 
