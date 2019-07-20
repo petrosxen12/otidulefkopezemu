@@ -16,11 +16,13 @@ def startapp():
     windows_tracker.run()
 
 
-@app.route('/onisillos', methods=['POST'])
+@app.route('/onisillos', methods=['POST', 'GET'])
 def getFormData():
     if request.method == 'POST':
         data = request.form
-        print(data)
+        return data
+    else:
+        return "Post endpoint."
 
 
 if __name__ == '__main__':
