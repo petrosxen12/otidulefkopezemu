@@ -13,6 +13,7 @@ def matrix_data():
     if request.method == 'GET':
         data = request.get_json()
         rgb = float(data.get('rgb'))
+        print("RGB VALUE: %f" % rgb)
         return {'rgb': rgb}
 
 
