@@ -3,15 +3,16 @@ from multiprocessing import Process, Queue
 
 import win32gui as wp
 
+import data_handlers as workers
+
 blacklist_file = open("blacklist.txt", "r")
 # blacklist = list(blacklist_file.readlines())
 blacklist = [x.strip('\n') for x in blacklist_file.readlines()]
 print(blacklist)
 
-
-def main():
-    q = Queue()
-    p = Process(target=workers.worker, args=q)
+q = Queue()
+p = Process(target=workers.worker, args=(q,))
+p.start()
 
 
 def is_in_blacklist(windowtitle):
@@ -21,6 +22,7 @@ def is_in_blacklist(windowtitle):
     for title in blacklist:
         if title in window_name:
             print("BLACKLIST")
+            q.put(True)
 
 
 def get_active_window():
