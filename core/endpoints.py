@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, request
 from flask import render_template
 
 app = Flask(__name__)
-
+blacklist_file = open("blacklist.txt", "w")
 
 @app.route('/')
 def index():
@@ -48,6 +48,16 @@ def getFormData():
         study_time = data.get('study_time')
         break_time = data.get('break_time')
 
+        blcllst = ['9gag', 'twitter', 'tumblr', 'instagram', 'World of Warcraft', 'minecraft', 'fortnite',
+                   'letmewatchthis', 'netflix', 'steam', 'epic']
+        kys = data.keys()
+        print(kys)
+
+        for key in kys:
+            if key in blcllst:
+                blacklist_file.write(key + "\n")
+
+        blacklist_file.close()
         return data
     else:
         return "Post endpoint."
