@@ -7,8 +7,9 @@ blacklist_file = open("blacklist.txt", "w")
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template('templates/index.html')
     # pass
+    # return "Hello"
     # return render_template("index.html", user="Petros")
 
 
