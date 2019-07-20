@@ -1,13 +1,15 @@
 import windows_tracker
 from flask import Flask, render_template, url_for, request
+from flask import render_template
 
 app = Flask(__name__)
 blacklist_file = open("blacklist.txt", "w")
 
 @app.route('/')
-def welcome():
-    name = request.args.get("name", "hello")
-    return name
+def index():
+    return render_template("index.html")
+    # pass
+    # return render_template("index.html", user="Petros")
 
 
 @app.route('/startapp')
@@ -18,16 +20,23 @@ def startapp():
 
 @app.route('/dataendpoint', methods=['POST'])
 def getFormData():
+    # TODO: Add key values to file which have the on value.
     if request.method == 'POST':
         data = request.form
+        #
+        # for obj in data.keys():
+        #     if obj.get() == 'on':
+        #
         ninegag = data.get('9gag')
         facebook = data.get('facebook')
+
         wow = data.get('WoW')
         fortnite = data.get('fortnite')
         graph = data.get('graph')
         info = data.get('info')
         instagram = data.get('instagram')
         minecraft = data.get('minecraft')
+        messenger = data.get('messenger')
         tumblr = data.get('tumblr')
         letmewatchthis = data.get('letmewatchthis')
         netflix = data.get('netflix')
