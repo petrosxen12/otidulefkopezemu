@@ -8,7 +8,7 @@ def matrix_data():
     if request.method == 'POST':
         data = request.get_json()
         matrix = float(data.get('matrix'))
-
+        print("MATRIX DATA: %f" % matrix)
         return {'matrix': matrix}
 
 
