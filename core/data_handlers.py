@@ -29,6 +29,8 @@ class DataHandler:
     change_window_times = []
     exit_status = False
 
+    headers = {'content-type': 'application/json'}
+
     takkonis_durations = []
     productive_durations = []
 
@@ -47,7 +49,7 @@ class DataHandler:
 
     rgb_metric_graph = []
     dt_graph = 0.5  # in seconds
-    duration = 240
+    duration = 320
     matrix_interval = duration / 16
 
     def __init__(self, q):
@@ -98,12 +100,15 @@ class DataHandler:
 
             height = math.ceil(norm_height * 8)
 
-            str_data = json.dumps({'rgb': self.rgb_metric, 'matrix':height})
+            matrix_data = json.dumps({'matrix':height})
 
-            headers = {'content-type': 'application/json'}
+            #r = requests.post(url=self.raspberry_post_address, data=matrix_data, headers=self.headers)
 
-            r = requests.post(url=self.raspberry_post_address, data=str_data, headers=headers)
+            self.old_interval = self.interval
 
+        #r_get = requests.get(url=self.raspberry_post_address, data=json.dumps({'rgb':self.rgb_metric}), headers=self.headers)
+        print(self.rgb_metric)
+        print(self.takkonis)
 
 
 
