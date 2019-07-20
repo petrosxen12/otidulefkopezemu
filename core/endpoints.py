@@ -16,10 +16,14 @@ def startapp():
     windows_tracker.run()
 
 
-@app.route('/onisillos', methods=['POST', 'GET'])
+@app.route('/dataendpoint', methods=['POST'])
 def getFormData():
     if request.method == 'POST':
         data = request.form
+        messenger = request.form.get('allowMsgr')
+        facebook = request.form.get('allowFcbk')
+        # facebook = request.form.get('allowFcbk')
+
         return data
     else:
         return "Post endpoint."
