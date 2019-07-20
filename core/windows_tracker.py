@@ -24,17 +24,23 @@ def is_in_blacklist(windowtitle):
     for title in blacklist:
         if title in window_name:
             print("BLACKLIST")
-            q.put(True)
+            # q.put(True)
         else:
-            q.put(False)
+            pass
+            # q.put(False)
 
 
 def get_active_window():
     # print("test")
     while True:
         window_name = wp.GetWindowText(wp.GetForegroundWindow())
-        print("Current window is: %s" % window_name)
-        print(is_in_blacklist(window_name))
+        if(old_window_name is not window_name and is_in_blacklist(window_name)):
+            q.put(True)
+
+        old_window_name = wp.GetWindowText(wp.GetForegroundWindow())
+        # print("Current window is: %s" % window_name)
+        # print(is_in_blacklist(window_name))
+
         sleep(1)
 
 
@@ -47,3 +53,4 @@ def hello():
 if __name__ == '__main__':
     p.start()
     get_active_window()
+    app.run()
