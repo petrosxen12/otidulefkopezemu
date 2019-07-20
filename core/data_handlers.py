@@ -1,5 +1,6 @@
 import time
 
+
 # import os
 
 # dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -13,7 +14,7 @@ def worker(q):
 
         datahandler.update()
 
-        if datahandler.exit_status == True:
+        if datahandler.exit_status:
             print("exiting")
             print("change_window_times: " + str(datahandler.change_window_times))
             break
@@ -43,7 +44,7 @@ class DataHandler:
         time.sleep(0.001)
 
     def update(self):
-        #print("In update")
+        # print("In update")
         self.check_point = time.time()
         self.rgb_metric = self.current_productiveness()
 
