@@ -25,7 +25,7 @@ def worker(q, study_time):
 
 
 class DataHandler:
-    raspberry_post_address = 'http://192.168.0.41:5000/'
+    raspberry_post_address = 'http://192.168.0.23:5000/'
 
     change_window_times = []
     exit_status = False
