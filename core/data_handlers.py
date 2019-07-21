@@ -51,7 +51,7 @@ class DataHandler:
 
     rgb_metric_graph = []
     dt_graph = 0.5  # in seconds
-    duration = 960
+    duration = 240
     matrix_interval = duration / 16
 
     def __init__(self, q, study_time):

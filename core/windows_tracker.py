@@ -38,7 +38,7 @@ def get_active_window():
 
         if window_name != old_window_name:
             print("window has changed\n")
-
+            print("d")
             is_in_blacklist(window_name)
 
             old_window_name = wp.GetWindowText(wp.GetForegroundWindow())

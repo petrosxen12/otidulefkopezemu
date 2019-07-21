@@ -60,7 +60,7 @@ def getFormData():
         num_cycle = data.get('num_cycle')
         study_time = float(data.get('study_time'))
 
-        print(study_time)
+        print("Duration: %f " % study_time)
 
         break_time = data.get('break_time')
 

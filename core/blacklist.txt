@@ -1,4 +1,3 @@
-9gag
 twitter
-messenger
+instagram
 facebook
