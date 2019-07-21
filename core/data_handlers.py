@@ -1,6 +1,7 @@
 import collections
 import json
 import time
+import requests
 
 import math
 
@@ -24,7 +25,7 @@ def worker(q):
 
 
 class DataHandler:
-    raspberry_post_address = 'http://192.168.18.224:5000/matrixdata'
+    raspberry_post_address = 'http://192.168.0.41:5000/'
 
     change_window_times = []
     exit_status = False
@@ -44,12 +45,13 @@ class DataHandler:
 
     rgb_metric = 0
     matrix_metric = (1,1)
+    previous_metric = 0
 
     takkonis = False
 
     rgb_metric_graph = []
     dt_graph = 0.5  # in seconds
-    duration = 320
+    duration = 32
     matrix_interval = duration / 16
 
     def __init__(self, q):
@@ -96,17 +98,29 @@ class DataHandler:
         #print(self.matrix_metric)
 
         if self.interval != self.old_interval:
-            norm_height = self.matrix_metric[1]
+            norm_height = self.previous_metric
 
-            height = math.ceil(norm_height * 8)
+            height = math.ceil((norm_height * 7) + 0.001)
+
+            height -= int(height == 8)
+
+            print(height)
+            print("metric: " + str(self.previous_metric) + '\n\n')
 
             matrix_data = json.dumps({'matrix':height})
 
-            #r = requests.post(url=self.raspberry_post_address, data=matrix_data, headers=self.headers)
+            r = requests.post(url=self.raspberry_post_address + "matrixdata", data=matrix_data, headers=self.headers)
 
             self.old_interval = self.interval
 
-        #r_get = requests.get(url=self.raspberry_post_address, data=json.dumps({'rgb':self.rgb_metric}), headers=self.headers)
+
+
+        self.previous_metric = self.matrix_metric[1]
+
+        #print(self.matrix_metric)
+
+
+        rgb_post = requests.post(url=self.raspberry_post_address + "rgblivedata", data=json.dumps({'rgb':self.rgb_metric}), headers=self.headers)
         # print(self.rgb_metric)
         # print(self.takkonis)
 
