@@ -8,6 +8,8 @@ app = Flask(__name__, template_folder='template')
 
 webbrowser.open_new('http://localhost:5000')
 
+study_time = 0
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -24,7 +26,7 @@ def user_info():
 @app.route('/startapp')
 def startapp():
     # os.system("python windows_tracker.py")
-    windows_tracker.run()
+    windows_tracker.run(study_time)
     return render_template('success.html')
 
 
@@ -56,7 +58,10 @@ def getFormData():
         epic = data.get('epic')
 
         num_cycle = data.get('num_cycle')
-        study_time = data.get('study_time')
+        study_time = float(data.get('study_time'))
+
+        print(study_time)
+
         break_time = data.get('break_time')
 
         blcllst = ['9gag', 'twitter', 'tumblr', 'instagram', 'World of Warcraft', 'minecraft', 'fortnite',

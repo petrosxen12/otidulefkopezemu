@@ -11,8 +11,8 @@ import math
 # dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
-def worker(q):
-    datahandler = DataHandler(q)
+def worker(q, study_time):
+    datahandler = DataHandler(q, study_time)
 
     while True:
 
@@ -51,16 +51,19 @@ class DataHandler:
 
     rgb_metric_graph = []
     dt_graph = 0.5  # in seconds
-    duration = 32
+    duration = 960
     matrix_interval = duration / 16
 
-    def __init__(self, q):
+    def __init__(self, q, study_time):
         self.last_check_point = time.time()
         self.start_time = self.last_check_point
         self.q = q
         self.interval_start_time = self.last_check_point
         self.interval_checkpoint = self.last_check_point
         self.interval_last_checkpoint = self.last_check_point
+        self.duration = study_time
+
+        print("DURATION: " + str(self.duration))
 
         time.sleep(0.001)
 

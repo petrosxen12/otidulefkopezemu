@@ -10,7 +10,7 @@ blacklist = [x.strip('\n') for x in blacklist_file.readlines()]
 print(blacklist)
 
 q = Queue()
-p = Process(target=workers.worker, args=(q,))
+
 
 
 def is_in_blacklist(windowtitle):
@@ -53,6 +53,7 @@ def get_active_window():
 #     p.start()
 #     get_active_window()
 
-def run():
+def run(study_time):
+    p = Process(target=workers.worker, args=(q, study_time))
     p.start()
     get_active_window()
