@@ -1,10 +1,12 @@
 import windows_tracker
-from flask import Flask, request
+import webbrowser
+from flask import Flask, request, json
 from flask import render_template
 
 # import os
 app = Flask(__name__, template_folder='template')
 
+webbrowser.open_new('http://localhost:5000')
 
 @app.route('/')
 def index():
@@ -67,7 +69,8 @@ def getFormData():
                 blacklist_file.write(key + "\n")
 
         blacklist_file.close()
-        return data
+        # return data
+        return render_template('success.html', name=data)
     else:
         return "Post endpoint."
 
